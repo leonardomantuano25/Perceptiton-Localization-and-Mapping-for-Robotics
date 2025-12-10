@@ -1,0 +1,15 @@
+<launch>
+  <param name="/use_sim_time" value="true"/>
+
+  <param name="starting_x" value="0.0"/>
+  <param name="starting_y" value="0.0"/>
+  <param name="starting_th" value="0.0"/>
+  <param name="wheelbase" value="2.8"/>
+
+  <node pkg="first_project" type="odom_node" name="odom_node" output="screen"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="sick_fl" args="1.85 0.93 0 0 0 0 odom sick_front_left 10"/>
+  <node pkg="tf" type="static_transform_publisher" name="sick_fr" args="1.85 -0.93 0 0 0 0 odom sick_front_right 10"/>
+  <node pkg="tf" type="static_transform_publisher" name="sick_rl" args="-1.85 0.93 0 0 0 0 odom sick_rear_left 10"/>
+  <node pkg="tf" type="static_transform_publisher" name="sick_rr" args="-1.75 -0.8 0 0 0 0 odom sick_rear_right 10"/>
+</launch>
